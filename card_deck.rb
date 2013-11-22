@@ -1,4 +1,4 @@
-require './card.rb'
+require_relative 'card'
 
 class CardDeck
   SUIT = 4
@@ -13,9 +13,9 @@ class CardDeck
   end
 
   def pick_out_card_at_random
-    drow_id = rand(@card_deck.size)
-    card = @card_deck[drow_id]
-    @card_deck.delete_at(drow_id)
+    draw_id = rand(@card_deck.size)
+    card = @card_deck[draw_id]
+    @card_deck.delete_at(draw_id)
     return card
   end
 

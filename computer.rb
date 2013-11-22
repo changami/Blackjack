@@ -1,6 +1,6 @@
-require './card.rb'
-require './card_deck.rb'
-require './player.rb'
+require_relative 'card'
+require_relative 'card_deck'
+require_relative 'player'
 
 class Computer < Player
   def to_string_for_display_in_the_game
@@ -14,7 +14,7 @@ class Computer < Player
 
   def draw_card_until_17_points
     while self.calc_score() <= 17 do
-      self.drow()
+      self.draw()
     end
   end
 end

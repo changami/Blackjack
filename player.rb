@@ -1,5 +1,5 @@
-require './card.rb'
-require './card_deck.rb'
+require_relative 'card'
+require_relative 'card_deck'
 
 class Player
   NUMBER_OF_HAND_AT_THE_START = 2
@@ -13,7 +13,7 @@ class Player
     @name
   end
 
-  def drow
+  def draw
     @hand << @deck.pick_out_card_at_random
   end
 
@@ -22,7 +22,7 @@ class Player
     @hand.clear
 
     NUMBER_OF_HAND_AT_THE_START.times do
-      self.drow
+      self.draw
     end
   end
 

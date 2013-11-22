@@ -1,16 +1,17 @@
-require './card.rb'
-require './card_deck.rb'
-require './player.rb'
-require './computer.rb'
+require_relative 'card'
+require_relative 'card_deck'
+require_relative 'player'
+require_relative 'computer'
 
 class Blackjack
-  MINIMAM_DECK_SIZE = 17
+  MINIMUM_DECK_SIZE = 17
   BLACKJACK = 21
   MESSAGE_TITLE = "■■■■■■■■ BLACKJACK ■■■■■■■■"
   MESSAGE_CONTINUE = "Do you want to continue the game? [Enter/n]"
   MESSAGE_DRAW = "Do you want to draw a card? [Enter/n]"
   COMPUTER_ICON = "■"
   PLAYER_ICON = "□"
+  ANIMATION_ICON = "■"
   def initialize(computer_name, player_name)
     @deck = CardDeck.new
     @computer = Computer.new(COMPUTER_ICON,computer_name,@deck)
@@ -18,7 +19,7 @@ class Blackjack
   end
 
   def deck_reset
-    if @deck.size < MINIMAM_DECK_SIZE then
+    if @deck.size < MINIMUM_DECK_SIZE then
       @deck.clear
       @deck = CardDeck.new
     end
@@ -52,10 +53,10 @@ class Blackjack
       print "> "
       answer = STDIN.gets
       unless answer == "\n" then
-        break;
+        break
       end
       puts
-      @player.drow()
+      @player.draw()
       self.show_the_game()
     end
   end
@@ -87,7 +88,7 @@ class Blackjack
       self.show_the_game()
       self.hit_or_stand()
       @computer.draw_card_until_17_points()
-      self.animation(50,0.01,"■")
+      self.animation(50,0.01,ANIMATION_ICON)
       self.show_the_game_result()
       self.judge()
     end while self.continue?

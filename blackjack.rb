@@ -12,6 +12,7 @@ class Blackjack
   COMPUTER_ICON = "■"
   PLAYER_ICON = "□"
   ANIMATION_ICON = "■"
+
   def initialize(computer_name, player_name)
     @deck = CardDeck.new
     @computer = Computer.new(COMPUTER_ICON,computer_name,@deck)
@@ -62,9 +63,9 @@ class Blackjack
   end
 
   def judge
-    if @computer.calc_score() > 21 && @player.calc_score() > 21 || @computer.calc_score() == @player.calc_score() then
+    if @computer.calc_score() > BLACKJACK && @player.calc_score() > BLACKJACK || @computer.calc_score() == @player.calc_score() then
       puts "", "DRAW GAME.."
-    elsif @player.calc_score() <= 21 && (@computer.calc_score() > 21 || @computer.calc_score() < @player.calc_score()) then
+    elsif @player.calc_score() <= BLACKJACK && (@computer.calc_score() > BLACKJACK || @computer.calc_score() < @player.calc_score()) then
       puts "", "YOU WIN!!"
     else
       puts "", "YOU LOSE.."
@@ -72,8 +73,8 @@ class Blackjack
   end
 
   def continue?
-    puts "", MESSAGE_CONTINUE
-    print "> "
+    puts '', MESSAGE_CONTINUE
+    print '> '
     if STDIN.gets == "\n" then
       return true
     else

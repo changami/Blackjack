@@ -1,9 +1,10 @@
 Blackjack
 =========
 
-It's a program to play Blackjack!
+It's a program to play Blackjack.  
+Please try to play this game!!
 
-#### How To Play ####
+#### Usage ####
 
 ```
 ruby main.rb

@@ -3,7 +3,8 @@ require_relative 'card_deck'
 
 class Player
   NUMBER_OF_HAND_AT_THE_START = 2
-  def initialize(icon, name, deck)
+
+  def initialize(icon, name)
     @icon = icon
     @name = name
     @hand = Array.new
@@ -31,28 +32,28 @@ class Player
     @hand.each do |card|
       score += card.get_score
     end
-    return score
+    score
   end
 
   def get_hand_value
     hand_value = String.new
 
     @hand.each do |card|
-      unless hand_value == "" then
-        hand_value += ", "
+      unless hand_value == ''
+        hand_value += ', '
       end
       hand_value += card.get_value
     end
 
-    return hand_value
+    hand_value
   end
 
   def to_string_for_display
     status = @icon
     status += @name
-    status += " [#{self.calc_score()}] "
-    status += self.get_hand_value()
+    status += " [#{self.calc_score}] "
+    status += self.get_hand_value
     status += " <#{@hand.size}>"
-    return status
+    status
   end
 end

@@ -1,8 +1,8 @@
 class Card
 
-  SCORE_INT_ARRAY = [1,2,3,4,5,6,7,8,9,10,10,10,10]
-  CARD_NUMBER_STRING_ARRAY = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
-  SUIT_STRING_ARRAY = ["Diamonds", "Hearts", "Clubs", "Spades"]
+  SCORE_INT_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+  CARD_NUMBER_STRING_ARRAY = %w(Ace 2 3 4 5 6 7 8 9 10 Jack Queen King)
+  SUIT_STRING_ARRAY = %w(Diamonds Hearts Clubs Spades)
 
   def initialize(number, suit)
     @number = CARD_NUMBER_STRING_ARRAY[number]
@@ -11,7 +11,7 @@ class Card
   end
 
   def get_value
-    "the " + @number + " of " + @suit
+    'the ' + @number + ' of ' + @suit
   end
 
   def get_score

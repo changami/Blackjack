@@ -6,12 +6,13 @@ class Computer < Player
   def to_string_for_display_in_the_game
     status = @icon
     status += @name
-    status += " [?] "
+    status += ' [?] '
     status += @hand[0].get_value
-    status += " ************"
-    return status
+    status += ' ************'
+    status
   end
 
+  # game level control
   def draw_card_until_17_points
     while self.calc_score() <= 17 do
       self.draw()

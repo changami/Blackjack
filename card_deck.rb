@@ -3,11 +3,12 @@ require_relative 'card'
 class CardDeck
   SUIT = 4
   TYPE_OF_CARD_NUMBER = 13
+
   def initialize
     @card_deck = Array.new
     SUIT.times do |suit|
       TYPE_OF_CARD_NUMBER.times do |number|
-        @card_deck  << Card.new(number,suit)
+        @card_deck << Card.new(number, suit)
       end
     end
   end
@@ -16,7 +17,7 @@ class CardDeck
     draw_id = rand(@card_deck.size)
     card = @card_deck[draw_id]
     @card_deck.delete_at(draw_id)
-    return card
+    card
   end
 
   def size
